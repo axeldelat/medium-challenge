@@ -5,6 +5,8 @@
 }
 
 $light-grey: rgb(117, 117, 117);
+$light-green: rgba(26, 137, 23, 1);
+$dark-green: rgb(15, 115, 12);
 
 // Header
 header {
@@ -23,10 +25,12 @@ header {
 				padding-right: 16px;
 			}
 			button {
-				color: rgb(26, 137, 23);
+				color: $light-green;
+				border: $light-green;
 			}
-			button {
-				color: rgba(15, 115, 12, 1);
+			button:hover {
+				color: $dark-green;
+				border: $dark-green;
 			}
 		}
 		.btn-black {
