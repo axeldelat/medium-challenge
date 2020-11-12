@@ -4,13 +4,14 @@ import React, { Component } from "react";
 import CustomInput from "../CustomInput";
 
 // CSS
-import "./Koders.css";
+import "./MediumPosts.css";
 
 const POSTS_JSON = [
   {
     title: "Prueba1",
+    subtitle: "a ver si sale",
     author: "Lucho",
-    avatar: "avatar",
+    authorImage: "avatar",
     date: "nov 15",
     timeToRead: "13 min",
     content: "una prueba de objetos",
@@ -22,8 +23,9 @@ const POSTS_JSON = [
   },
   {
     title: "Prueba2",
+    subtitle: "a ver si sale",
     author: "Haro",
-    avatar: "avatar",
+    authorImage: "avatar",
     date: "nov 15",
     timeToRead: "8 min",
     content: "una prueba de objetos2",
@@ -35,14 +37,15 @@ const POSTS_JSON = [
   },
 ];
 
-class Posts extends Component {
+class MediumPosts extends Component {
   constructor(props) {
     super(props);
     this.state = {
       posts: [],
       title: "",
+      subtitle: "",
       author: "",
-      avatar: "",
+      authorImage: "",
       date: "",
       timeToRead: "",
       content: "",
@@ -74,12 +77,13 @@ class Posts extends Component {
   }
 
   renderPosts() {
-    return this.state.posts.map(({ title, author, avatar, date, timeToRead, content, category, featured, popular, editorsPick, imageUrl }) => {
+    return this.state.posts.map(({ title, subtitle, author, authorImage, date, timeToRead, content, category, featured, popular, editorsPick, imageUrl }) => {
       return (
         <ul>
           <li>{title}</li>
+          <li>{subtitle}</li>
           <li>{author}</li>
-          <li>{avatar}</li>
+          <li>{authorImage}</li>
           <li>{date}</li>
           <li>{timeToRead}</li>
           <li>{content}</li>
@@ -101,11 +105,12 @@ class Posts extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    let { title, author, avatar, date, timeToRead, content, category, featured, popular, editorsPick, imageUrl } = this.state;
+    let { posts, title, subtitle, author, authorImage, date, timeToRead, content, category, featured, popular, editorsPick, imageUrl } = this.state;
     const newPost = {
       title: title,
+      subtitle: subtitle,
       author: author,
-      avatar: avatar,
+      authorImage: authorImage,
       date: date,
       timeToRead: timeToRead,
       content: content,
@@ -118,12 +123,15 @@ class Posts extends Component {
     let postsLocal = JSON.parse(localStorage.getItem("posts"));
     postsLocal.push(newPost);
     localStorage.setItem("posts", JSON.stringify(postsLocal));
+    // eslint-disable-next-line no-undef
     posts.push(newPost);
     this.setState({
+      // eslint-disable-next-line no-undef
       posts,
       title: "",
+      subtitle: "",
       author: "",
-      avatar: "",
+      authorImage: "",
       date: "",
       timeToRead: "",
       content: "",
@@ -131,19 +139,14 @@ class Posts extends Component {
       featured: "",
       popular: "",
       editorsPick: "",
-      imageUrl: ""
+      imageUrl: "",
     });
   }
 
   render() {
-    const { title, author, avatar, date, timeToRead, content, category, featured, popular, editorsPick, imageUrl } = this.state;
+    const { posts, title, subtitle, author, authorImage, date, timeToRead, content, category, featured, popular, editorsPick, imageUrl } = this.state;
     return (
       <div>
-        {posts.length ? (
-          <ul>{this.renderPosts()}</ul>
-        ) : (
-          <h1>No Posts</h1>
-        )}
         <form onSubmit={this.handleSubmit}>
           Title:{" "}
           <CustomInput
@@ -152,18 +155,11 @@ class Posts extends Component {
             name="title"
             callback={this.handlerNewPostChange}
           />
-          Author:{" "}
+          Subtitle:{" "}
           <CustomInput
             type="text"
-            value={author}
-            name="author"
-            callback={this.handlerNewPostChange}
-          />
-          Avatar:{" "}
-          <CustomInput
-            type="text"
-            value={avatar}
-            name="avatar"
+            value={subtitle}
+            name="subtitle"
             callback={this.handlerNewPostChange}
           />
           Date:{" "}
@@ -175,7 +171,7 @@ class Posts extends Component {
           />
           Time To Read:{" "}
           <CustomInput
-            type="text"
+            type="number"
             value={timeToRead}
             name="timeToRead"
             callback={this.handlerNewPostChange}
@@ -187,18 +183,18 @@ class Posts extends Component {
             name="content"
             callback={this.handlerNewPostChange}
           />
-          Category:{" "}
-          <CustomInput
-            type="text"
-            value={category}
-            name="category"
-            callback={this.handlerNewPostChange}
-          />
           Featured:{" "}
           <CustomInput
             type="checkbox"
             value={featured}
             name="featured"
+            callback={this.handlerNewPostChange}
+          />
+          Editor's Pick:{" "}
+          <CustomInput
+            type="checkbox"
+            value={editorsPick}
+            name="editorsPick"
             callback={this.handlerNewPostChange}
           />
           Popular:{" "}
@@ -208,13 +204,6 @@ class Posts extends Component {
             name="popular"
             callback={this.handlerNewPostChange}
           />
-          Editor's Pick:{" "}
-          <CustomInput
-            type="text"
-            value={editorsPick}
-            name="editorsPick"
-            callback={this.handlerNewPostChange}
-          />
           Image URL:{" "}
           <CustomInput
             type="text"
@@ -222,11 +211,37 @@ class Posts extends Component {
             name="imageUrl"
             callback={this.handlerNewPostChange}
           />
+          Category:{" "}
+          <CustomInput
+            type="text"
+            value={category}
+            name="category"
+            callback={this.handlerNewPostChange}
+          />
+          Author:{" "}
+          <CustomInput
+            type="text"
+            value={author}
+            name="author"
+            callback={this.handlerNewPostChange}
+          />
+          Author Image:{" "}
+          <CustomInput
+            type="text"
+            value={authorImage}
+            name="authorImage"
+            callback={this.handlerNewPostChange}
+          />
           <button type="submit">SUBMIT POST</button>
         </form>
+        {posts.length ? (
+          <ul>{this.renderPosts()}</ul>
+        ) : (
+          <h1>No Posts</h1>
+        )}
       </div>
     );
   }
 }
 
-export default Posts;
+export default MediumPosts;

@@ -1,13 +1,13 @@
 import './App.css';
-import Posts from './components/Posts';
-import Koders from './components/Koders';
+// import Posts from './components/Posts';
+import MediumPosts from './components/MediumPosts';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Posts />
-        <Koders />
+        {/* <Posts /> */}
+        <MediumPosts />
       </header>
     </div>
   );
