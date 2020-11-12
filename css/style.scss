@@ -1,0 +1,142 @@
+// General
+* {
+	box-sizing: border-box;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+$light-grey: rgb(117, 117, 117);
+
+// Header
+header {
+	padding-top: 25px;
+	padding-bottom: 25px;
+	nav {
+		.logo {
+			.greeting {
+				font-size: 20px;
+				font-weight: bold;
+				padding-left: 16px;
+				border-left: 1px solid rgba(230, 230, 230, 1);
+			}
+			svg {
+				height: 32px;
+				padding-right: 16px;
+			}
+			button {
+				color: rgb(26, 137, 23);
+			}
+			button {
+				color: rgba(15, 115, 12, 1);
+			}
+		}
+		.btn-black {
+			background-color: black;
+			color: white;
+		}
+		.navigation {
+			div {
+				margin-right: 16px;
+			}
+			button {
+				padding: 4px 12px;
+				font-size: 14px;
+				margin-right: 16px;
+			}
+			img {
+				height: 32px;
+			}
+		}
+	}
+}
+
+//Main Content
+
+//Featured Section
+main {
+	.tiny-avatar {
+		height: 20px;
+		width: 20px;
+	}
+	.featured-section {
+		.first-featured-post {
+			.author-name {
+				font-size: 13px;
+				font-weight: bold;
+				margin: 0;
+				margin-left: 8px;
+				margin-top: 16px;
+			}
+			.title {
+				font-size: 22px;
+				font-weight: bold;
+				padding-top: 8px;
+				padding-bottom: 6px;
+			}
+			.subtitle {
+				font-size: 18px;
+				font-family: serif;
+			}
+			.featured-img {
+				background-image: url(../images/1_0QxQodE1rzAG_6nmzRWpFA.jpeg);
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: cover;
+				height: 250px;
+			}
+			.meta {
+				color: $light-grey;
+				font-size: 13px;
+				margin-top: 16px;
+				a {
+					color: $light-grey;
+				}
+			}
+		}
+		.second-featured-section {
+			.middle-posts {
+				margin-bottom: 32px;
+				.card-text {
+					padding-right: 20px;
+					.author-section {
+						padding-bottom: 8px;
+						.author-name {
+							font-size: 13px;
+							font-weight: bold;
+							margin: 0;
+							margin-left: 8px;
+						}
+					}
+					.title {
+						font-size: 16px;
+						font-weight: bold;
+						padding-top: 8px;
+					}
+					.subtitle {
+						font-size: 18px;
+						font-family: serif;
+					}
+					.meta {
+						color: $light-grey;
+						font-size: 13px;
+						margin-top: 8px;
+						a {
+							color: $light-grey;
+						}
+						svg {
+							fill: $light-grey;
+						}
+					}
+				}
+				.post-img {
+					background-image: url(../images/1_0QxQodE1rzAG_6nmzRWpFA.jpeg);
+					background-position: center;
+					background-repeat: no-repeat;
+					background-size: cover;
+					height: 100px;
+					width: 100px;
+				}
+			}
+		}
+	}
+}
+
